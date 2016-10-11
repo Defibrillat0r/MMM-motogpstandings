@@ -208,7 +208,7 @@ Module.register("MMM-motogpstandings",{
 	socketNotificationReceived: function(notification, payload) {
         if (notification === "HTML_RESULT") {
             this.result = payload;
-            this.updateDom(self.config.fadeSpeed);
+            this.updateDom();
         }    
 	},
 

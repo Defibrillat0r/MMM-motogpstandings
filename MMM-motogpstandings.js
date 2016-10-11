@@ -188,7 +188,7 @@ Module.register("MMM-motogpstandings",{
 		
      
 		parser=new DOMParser(); 
-		htmlDoc=parser.parseFromString(data, "text/html"); 
+		htmlDoc=parser.parseFromString(data, "text/text"); 
 		var nodes = htmlDoc.getElementById("main_result");
 		console.log(nodes);
 		this.resultTable = nodes; 

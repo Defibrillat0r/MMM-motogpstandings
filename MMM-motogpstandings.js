@@ -184,6 +184,10 @@ Module.register("MMM-motogpstandings",{
 
 			});
 		}*/
+		
+		console.log(data); 
+     
+		this.resultTable = data; 
 		console.log("loaded = true");
 		this.loaded = true;
 		this.updateDom(this.config.animationSpeed);

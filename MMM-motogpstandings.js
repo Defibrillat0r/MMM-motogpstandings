@@ -190,7 +190,7 @@ Module.register("MMM-motogpstandings",{
 		parser=new DOMParser(); 
 		htmlDoc=parser.parseFromString(data, "text/html"); 
 		var nodes = htmlDoc.getElementById("main_result");
-		console.log("nodes");
+		console.log(nodes);
 		this.resultTable = nodes; 
 		console.log("loaded = true");
 		this.loaded = true;

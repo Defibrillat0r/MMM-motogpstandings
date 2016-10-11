@@ -1,4 +1,4 @@
-Module.register("motogpstandings",{
+Module.register("MMM-motogpstandings",{
 
 	// Define module defaults
 	defaults: {

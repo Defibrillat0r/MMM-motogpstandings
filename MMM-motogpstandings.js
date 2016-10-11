@@ -109,7 +109,7 @@ Module.register("MMM-motogpstandings",{
 
 		}*/
 
-		return this.result;
+		return this.resultTable;
 	},
 
 	/* updateTimetable(compliments)
@@ -184,6 +184,18 @@ Module.register("MMM-motogpstandings",{
 			});
 		}*/
 		console.log("loaded = true");
+		
+		// process html
+		parser=new DOMParser();
+		htmlDoc=parser.parseFromString(data, "text/html");
+		var nodes = htmlDoc.getElementById("main_result").getElementsByTagName("table");
+		
+		/*for(var i = 0; i < nodes.length; i++){
+			nodes[i].parentNode.removeChild(nodes[i]);
+		}*/
+
+		this.resultTable = nodes;
+
 		this.loaded = true;
 		this.updateDom(this.config.animationSpeed);
 	},

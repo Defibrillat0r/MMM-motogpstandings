@@ -146,6 +146,7 @@ Module.register("MMM-motogpstandings",{
 			}
 		};
 		trainRequest.send();*/
+		console.log("send socket notification");
 		this.sendSocketNotification('GET_STANDINGS', url);
 	},
 
@@ -182,7 +183,7 @@ Module.register("MMM-motogpstandings",{
 
 			});
 		}*/
-		this.tableData = data;
+		console.log("loaded = true");
 		this.loaded = true;
 		this.updateDom(this.config.animationSpeed);
 	},
@@ -207,8 +208,9 @@ Module.register("MMM-motogpstandings",{
 	
 	socketNotificationReceived: function(notification, payload) {
         if (notification === "HTML_RESULT") {
+			console.log("got html result");
             this.result = payload;
-            this.updateDom();
+            this.processTrains(payload);
         }    
 	},
 

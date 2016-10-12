@@ -17,7 +17,6 @@ module.exports = NodeHelper.create({
 
   },
 
-  //Subclass socketNotificationReceived received.
   socketNotificationReceived: function(notification, payload) {
     if (notification === 'GET_STANDINGS') {
       this.getStocks(payload);

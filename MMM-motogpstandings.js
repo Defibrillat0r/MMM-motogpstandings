@@ -63,7 +63,7 @@ Module.register("MMM-motogpstandings",{
 		table.className = "small";
 		
 		console.log(this.resultTable);
-		console.log(this.resultTable.rankings[1].standings);
+		console.log(this.resultTable.rankings);
 		
 		for(var rider in this.resultTable.rankings[1].standings)
 		{

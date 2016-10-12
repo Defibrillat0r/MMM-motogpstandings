@@ -11,7 +11,7 @@ Module.register("MMM-motogpstandings",{
 		
                 apiBase: 'http://transport.opendata.ch/v1/stationboard',
                 id: "008503203",
-				baseUrl: 'http://www.motogp.com/en',
+				baseUrl: 'http://54.171.219.170/live/json/motogp/2016/ranking.json',
                 
 		titleReplace: {
 			"Zeittabelle ": ""
@@ -61,6 +61,13 @@ Module.register("MMM-motogpstandings",{
 
 		var table = document.createElement("table");
 		table.className = "small";
+		
+		console.log(this.resultTable);
+		
+		for(var rider in this.resultTable.rankings[1].standings)
+		{
+			console.log(rider);
+		}
 
 		/*for (var t in this.trains) {
 			var trains = this.trains[t];
@@ -205,13 +212,13 @@ Module.register("MMM-motogpstandings",{
 		this.resultTable = doc.getElementById("main_result");
 		*/
 		
-		
-		var fullDom = document.createElement("div");
+		this.resultTable = data;
+		/*var fullDom = document.createElement("div");
 		fullDom.innerHTML = data;
 		console.log(fullDom);
 		var extractTable = fullDom.getElementsByClassName("width100");
 		console.log(extractTable);
-		this.resultTable = extractTable;
+		this.resultTable = extractTable;*/
 		console.log("loaded = true");
 		this.loaded = true;
 		this.updateDom(this.config.animationSpeed);
@@ -239,7 +246,7 @@ Module.register("MMM-motogpstandings",{
         if (notification === "HTML_RESULT") {
 			console.log("got html result");
             this.result = payload;
-            this.processTrains(payload);
+            this.processTrains(JSON.parse(payload));
         }    
 	},
 

@@ -64,13 +64,16 @@ Module.register("MMM-motogpstandings",{
 		
 		console.log(this.resultTable);
 		console.log(this.resultTable.rankings);
+		console.log("ranking1: "+this.resultTable.rankings[1]);
+		console.log("standing: "+this.resultTable.rankings[1].standing);
 		
+		console.log("rankings for:");
 		for(var rid in this.resultTable.rankings)
 		{
 			console.log(rid);
 		}
-		
-		for(var rider in this.resultTable.rankings[1].standings)
+		console.log("standing for:");
+		for(var rider in this.resultTable.rankings[1].standing)
 		{
 			console.log(rider);
 		}

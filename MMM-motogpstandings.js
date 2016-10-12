@@ -110,6 +110,9 @@ Module.register("MMM-motogpstandings",{
 		}*/
 
 		wrapper.innerHTML = this.resultTable;
+		
+		
+		
 		return wrapper;
 	},
 
@@ -186,12 +189,20 @@ Module.register("MMM-motogpstandings",{
 		}*/
 		
 		
-     
+     /*
 		parser=new DOMParser(); 
 		htmlDoc=parser.parseFromString(data, "text/text"); 
 		var nodes = htmlDoc.getElementById("main_result");
 		console.log(nodes);
-		this.resultTable = nodes; 
+		this.resultTable = nodes; */
+		
+		
+		
+		var fullDom = document.createElement("div");
+		fullDom.innerHTML = data;
+		
+		var extractTable = fullDom.getElementById("main_result");
+		this.resultTable = extractTable;
 		console.log("loaded = true");
 		this.loaded = true;
 		this.updateDom(this.config.animationSpeed);

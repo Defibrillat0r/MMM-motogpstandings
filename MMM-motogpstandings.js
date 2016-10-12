@@ -75,6 +75,7 @@ Module.register("MMM-motogpstandings",{
 		}*/
 		
 		var row = document.createElement("tr");
+		row.className = "header";
 		table.appendChild(row);
 		
 		var posCell = document.createElement("td");

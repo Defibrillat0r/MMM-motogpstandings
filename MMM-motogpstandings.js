@@ -19,9 +19,10 @@ Module.register("MMM-motogpstandings",{
 	},
 
 	// Define required scripts.
-	/*getStyles: function() {
-		return ["swisstransport.css", "font-awesome.css"];
-	},*/
+	getStyles: function() {
+		return ["motogpstandings.css"];
+	},
+	
 
 	// Define required scripts.
 	/*getScripts: function() {
@@ -62,7 +63,7 @@ Module.register("MMM-motogpstandings",{
 		var table = document.createElement("table");
 		table.className = "small";
 		
-		console.log(this.resultTable);
+		/*console.log(this.resultTable);
 		console.log(this.resultTable.rankings);
 		console.log("ranking1: "+this.resultTable.rankings[1]);
 		console.log("standing: "+this.resultTable.rankings[1].standing);
@@ -71,7 +72,7 @@ Module.register("MMM-motogpstandings",{
 		for(var rid in this.resultTable.rankings)
 		{
 			console.log(rid);
-		}
+		}*/
 		
 		var row = document.createElement("tr");
 		table.appendChild(row);

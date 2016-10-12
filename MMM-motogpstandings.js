@@ -73,10 +73,39 @@ Module.register("MMM-motogpstandings",{
 			console.log(rid);
 		}
 		
+		var row = document.createElement("tr");
+		table.appendChild(row);
+		
+		var posCell = document.createElement("td");
+		posCell.innerHTML = "Pos.";
+		row.appendChild(posCell);
+			
+		var nameCell = document.createElement("td");
+		nameCell.innerHTML = "Fahrer";
+		row.appendChild(nameCell);
+			
+		var countryCell = document.createElement("td");
+		countryCell.innerHTML = "Land";
+		row.appendChild(countryCell);
+			
+		var bikeCell = document.createElement("td");
+		bikeCell.innerHTML = "Bike";
+		row.appendChild(bikeCell);
+			
+		var pointsCell = document.createElement("td");
+		pointsCell.innerHTML = "Punkte";
+		row.appendChild(pointsCell);
+		
+		
 		console.log("standing for:");
+		var count = 0;
 		for(var rider in this.resultTable.rankings[1].standing)
 		{
-			console.log(rider);
+			if(count >= this.config.maximumEntries)
+				break;
+			count++;
+			
+			//console.log(rider);
 			
 			var riderObj = this.resultTable.rankings[1].standing[rider];
 			
@@ -91,6 +120,31 @@ Module.register("MMM-motogpstandings",{
 			nameCell.innerHTML = riderObj.name+" "+riderObj.surname;
 			row.appendChild(nameCell);
 			
+			var countryCell = document.createElement("td");
+			countryCell.innerHTML = riderObj.country_id;
+			row.appendChild(countryCell);
+			
+			var bikeCell = document.createElement("td");
+			bikeCell.innerHTML = riderObj.carbike;
+			row.appendChild(bikeCell);
+			
+			var pointsCell = document.createElement("td");
+			pointsCell.innerHTML = riderObj.points;
+			row.appendChild(pointsCell);
+			
+			if (this.config.fade && this.config.fadePoint < 1) {
+				if (this.config.fadePoint < 0) {
+					this.config.fadePoint = 0;
+				}
+				var startingPoint = this.config.maximumEntries * this.config.fadePoint;
+				var steps = this.config.maximumEntries - startingPoint;
+				if (rider >= startingPoint) {
+					var currentStep = rider - startingPoint;
+					row.style.opacity = 1 - (1 / steps * currentStep);
+				}
+			}
+			
+			/*
 			if (this.config.fade && this.config.fadePoint < 1) {
 				if (this.config.fadePoint < 0) {
 					this.config.fadePoint = 0;
@@ -101,7 +155,7 @@ Module.register("MMM-motogpstandings",{
 					var currentStep = rider - startingPoint;
 					row.style.opacity = 1 - (1 / steps * currentStep);
 				}
-			}
+			}*/
 			
 		}
 

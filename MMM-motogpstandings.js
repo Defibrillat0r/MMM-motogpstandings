@@ -72,10 +72,37 @@ Module.register("MMM-motogpstandings",{
 		{
 			console.log(rid);
 		}
+		
 		console.log("standing for:");
 		for(var rider in this.resultTable.rankings[1].standing)
 		{
 			console.log(rider);
+			
+			var riderObj = this.resultTable.rankings[1].standing[rider];
+			
+			var row = document.createElement("tr");
+			table.appendChild(row);
+			
+			var posCell = document.createElement("td");
+			posCell.innerHTML = riderObj.position;
+			row.appendChild(posCell);
+			
+			var nameCell = document.createElement("td");
+			nameCell.innerHTML = riderObj.name+" "+riderObj.surname;
+			row.appendChild(nameCell);
+			
+			if (this.config.fade && this.config.fadePoint < 1) {
+				if (this.config.fadePoint < 0) {
+					this.config.fadePoint = 0;
+				}
+				var startingPoint = this.resultTable.rankings[1].standing.length * this.config.fadePoint;
+				var steps = this.resultTable.rankings[1].standing.length - startingPoint;
+				if (t >= startingPoint) {
+					var currentStep = t - startingPoint;
+					row.style.opacity = 1 - (1 / steps * currentStep);
+				}
+			}
+			
 		}
 
 		/*for (var t in this.trains) {
@@ -125,11 +152,11 @@ Module.register("MMM-motogpstandings",{
 
 		}*/
 
-		wrapper.innerHTML = this.resultTable;
+		//wrapper.innerHTML = this.resultTable;
 		
 		
 		
-		return wrapper;
+		return table;
 	},
 
 	/* updateTimetable(compliments)

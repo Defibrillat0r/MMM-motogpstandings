@@ -196,13 +196,20 @@ Module.register("MMM-motogpstandings",{
 		console.log(nodes);
 		this.resultTable = nodes; */
 		
+		var xmlDoc = document.implementation.createDocument(null, "html", null);
+		var body = document.createElementNS('http://www.w3.org/1999/xhtml', 'body');
+		body.setAttribute('id', 'bodyid');
+		body.innerHTML = data;
+		doc.documentElement.appendChild(body);
+		this.resultTable = doc.getElementById("main_result");
 		
+		/*
 		
 		var fullDom = document.createElement("div");
 		fullDom.innerHTML = data;
 		
 		var extractTable = fullDom.getElementById("main_result");
-		this.resultTable = extractTable;
+		this.resultTable = extractTable;*/
 		console.log("loaded = true");
 		this.loaded = true;
 		this.updateDom(this.config.animationSpeed);

@@ -196,7 +196,7 @@ Module.register("MMM-motogpstandings",{
 		console.log(nodes);
 		this.resultTable = nodes; */
 		
-		var xmlDoc = document.implementation.createDocument(null, "html", null);
+		var doc = document.implementation.createDocument(null, "html", null);
 		var body = document.createElementNS('http://www.w3.org/1999/xhtml', 'body');
 		body.setAttribute('id', 'bodyid');
 		body.innerHTML = data;

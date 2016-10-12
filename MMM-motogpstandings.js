@@ -209,7 +209,7 @@ Module.register("MMM-motogpstandings",{
 		var fullDom = document.createElement("div");
 		fullDom.innerHTML = data;
 		
-		var extractTable = fullDom.getElementsByClassName("width100")[0];
+		var extractTable = fullDom.getElementsByClassName("width100");
 		console.log(extractTable);
 		this.resultTable = extractTable;
 		console.log("loaded = true");

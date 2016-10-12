@@ -208,7 +208,7 @@ Module.register("MMM-motogpstandings",{
 		
 		var fullDom = document.createElement("div");
 		fullDom.innerHTML = data;
-		
+		console.log(fullDom);
 		var extractTable = fullDom.getElementsByClassName("width100");
 		console.log(extractTable);
 		this.resultTable = extractTable;

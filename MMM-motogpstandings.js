@@ -97,7 +97,7 @@ Module.register("MMM-motogpstandings",{
 				}
 				var startingPoint = this.resultTable.rankings[1].standing.length * this.config.fadePoint;
 				var steps = this.resultTable.rankings[1].standing.length - startingPoint;
-				if (t >= startingPoint) {
+				if (rider >= startingPoint) {
 					var currentStep = t - startingPoint;
 					row.style.opacity = 1 - (1 / steps * currentStep);
 				}
